@@ -79,7 +79,6 @@ ngx_debug_init(void)
     ngx_debug_malloc = 1;
 
 #else
-
     if (getenv("MallocScribble")) {
         ngx_debug_malloc = 1;
     }

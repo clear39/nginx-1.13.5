@@ -347,7 +347,6 @@ ngx_log_init(u_char *prefix)
 
         if (prefix) {
             plen = ngx_strlen(prefix);
-
         } else {
 #ifdef NGX_PREFIX
             prefix = (u_char *) NGX_PREFIX;
@@ -375,18 +374,12 @@ ngx_log_init(u_char *prefix)
         }
     }
 
-    ngx_log_file.fd = ngx_open_file(name, NGX_FILE_APPEND,
-                                    NGX_FILE_CREATE_OR_OPEN,
-                                    NGX_FILE_DEFAULT_ACCESS);
+    ngx_log_file.fd = ngx_open_file(name, NGX_FILE_APPEND,NGX_FILE_CREATE_OR_OPEN,NGX_FILE_DEFAULT_ACCESS);
 
     if (ngx_log_file.fd == NGX_INVALID_FILE) {
-        ngx_log_stderr(ngx_errno,
-                       "[alert] could not open error log file: "
-                       ngx_open_file_n " \"%s\" failed", name);
+        ngx_log_stderr(ngx_errno,"[alert] could not open error log file: " ngx_open_file_n " \"%s\" failed", name);
 #if (NGX_WIN32)
-        ngx_event_log(ngx_errno,
-                       "could not open error log file: "
-                       ngx_open_file_n " \"%s\" failed", name);
+        ngx_event_log(ngx_errno,"could not open error log file: " ngx_open_file_n " \"%s\" failed", name);
 #endif
 
         ngx_log_file.fd = ngx_stderr;
