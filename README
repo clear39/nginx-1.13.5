@@ -1,3 +1,22 @@
 
 Documentation is available at http://nginx.org
 
+
+
+1. 下载地址：
+    http://nginx.org/en/download.html 
+    http://nginx.org/download/
+2. tar -zxvf *.tar.gz 
+
+3. 查看NGINX目录有如下文件夹：
+      ○ auto  CHANGES  CHANGES.ru  conf  configure  contrib  html  LICENSE  Makefile  man  objs  README  src
+
+
+4、./configure 
+问题-：openssl library is not used 
+下载openssl源代码： wget http://www.openssl.org/source/openssl-1.0.0e.tar.gz 
+解压：tar -xzvf openssl-1.0.0e.tar.gz 
+改用 ./configure   --with-openssl=源码路径 --with-http_ssl_module
+
+
+5、make && sudo make install
